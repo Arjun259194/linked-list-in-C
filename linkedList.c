@@ -6,6 +6,14 @@ struct node
   struct node *next;
 };
 
+struct node* CreateNode(int data){
+  struct node* ptr = (struct node*)malloc(sizeof(struct node));
+  ptr->data = data;
+  ptr->next = NULL;
+
+  return ptr;
+}
+
 void listTraverse(struct node *head)
 {
   struct node *ptr = head;
@@ -20,13 +28,8 @@ void listTraverse(struct node *head)
 int main()
 {
   // creating and initializing nodes
-  struct node *head = (struct node *)malloc(sizeof(struct node));
-  head->data = 5;
-  head->next = NULL;
-  struct node *second = (struct node *)malloc(sizeof(struct node));
-  second->data = 6;
-  second->next = NULL;
-
+  struct node *head =  CreateNode(5);
+  struct node *second = CreateNode(6);
   // connecting nodes
   head->next = second;
 
